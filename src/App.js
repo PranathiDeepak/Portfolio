@@ -92,8 +92,12 @@ function Hero() {
       { className: "hero" },
       h(
         "div",
-        { className: "avatar-ph", role: "img", "aria-label": `${data.profile.name} portrait placeholder` },
-        "512 × 512"
+        { className: "avatar-ph" },
+        h("img", {
+          src: "picture.jpeg",
+          alt: `${data.profile.name} portrait`,
+          style: { width: "100%", height: "100%", objectFit: "cover" }
+        })
       ),
       h(
         "div",
@@ -107,6 +111,31 @@ function Hero() {
     )
   );
 }
+
+// function Hero() {
+//   return h(
+//     "section",
+//     { id: "home" },
+//     h(
+//       "div",
+//       { className: "hero" },
+//       h(
+//         "div",
+//         { className: "avatar-ph", role: "img", "aria-label": `${data.profile.name} portrait placeholder` },
+//         "512 × 512"
+//       ),
+//       h(
+//         "div",
+//         null,
+//         h("h1", null, data.profile.name),
+//         h("div", { className: "role" }, data.profile.role),
+//         h("p", { className: "line" }, data.profile.headline),
+//         h("div", { className: "meta" }, data.profile.location),
+//         h(SkillsMarquee)
+//       )
+//     )
+//   );
+// }
 
 function useInView() {
   const ref = React.useRef(null);
